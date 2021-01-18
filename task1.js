@@ -135,18 +135,11 @@ for (let i = 0; i < cites.length; i++)
 
 alert("Задание №5");
 let array = [45, 78, 10, 3];
-array.sort(my);//.transformation();
-
-// alert(firstCity.nameCity);
-// alert(secondCity.nameCity);
-
-// alert("Задание №1");
-// let input = prompt("Введите строку:", "");
-
-// let capitalise = (str) => {
-//   let temp = str.charAt(0).toUpperCase() + str.slice(1);
-//     return temp;
-// }
-
-// let output = capitalise(input);
-// console.log(output);
+array.sort(my).map(item => {
+         let temp = item.toString();
+         let sum = 0;
+         for (let key in temp) {
+             sum += Number(temp[key]);
+         }
+         return sum;
+     });

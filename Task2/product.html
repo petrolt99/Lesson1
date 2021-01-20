@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+   <title>Шоколад</title>
+   <link rel="stylesheet" type="text/css" href="style.css">
+ </head>
+ <body>
+  <ul class="main-menu">
+    <li><a href="page1.html">Страница 1</a></li>
+    <li><a href="page2.html">Страница 2</a></li>
+  </ul>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>  
+    <script src="script.js"></script>
+    <script>
+        let link = window.location.href;
+        let id;
+         id = parseInt(link.substring(link.indexOf('ID=')+3, link.length));
+
+        document.write('<h1>Шоколад ' + orderList[id].name + '</h1>');
+        document.write('<p>Изысканный шоколад и неповторимый вкус!</p>');
+        document.write('<input type="button" value="Заказать">');
+    </script>
+ </body>
+</html>

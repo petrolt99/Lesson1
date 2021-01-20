@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>table.forum tr:hover p</td>
+            <td> | Специфичность: 23</td>
+        </tr>
+        <tr>
+            <td>#catalog .col3 .height div</td>
+            <td> | Специфичность: 121</td>
+        </tr>
+        <tr>
+            <td>a.new > #newOrder > span:visited</td>
+            <td> | Специфичность: 122</td>
+        </tr>
+        <tr>
+            <td>.menu ul li:last-child</td>
+            <td> | Специфичность: 22</td>
+        </tr>
+        <tr>
+            <td>#content.three-col</td>
+            <td> | Специфичность: 110</td>
+        </tr>
+        <tr>
+            <td>h1 + .block_title</td>
+            <td> | Специфичность: 11</td>
+        </tr>
+        <tr>
+            <td>#newPage h2#lastHeader > span.smallFont</td>
+            <td> | Специфичность: 212</td>
+        </tr>
+        <tr>
+            <td>или</td>
+        </tr>
+        <tr>
+            <td>#newPage h2.lastHeader > span.smallFont</td>
+            <td> | Специфичность: 122</td>
+        </tr>
+    </table>
+</body>
+</html>

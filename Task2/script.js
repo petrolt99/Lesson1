@@ -3,15 +3,43 @@
 function BuildTable(table) {
     table.innerHTML = "";
     for (let index = 0; index < orderList.length; index++) {
-    let td = document.createElement('td');
-    for (let key in orderList[index]) {
-        let tr = document.createElement('tr');
-        tr.id = key;
-        tr.style.height = '30px';
-        tr.textContent = orderList[index][key] + " ";
-        td.append(tr);
-    }
-    table.append(td);
+        let td = document.createElement('td');
+        for (let key in orderList[index]) {
+            let tr = document.createElement('tr');
+            tr.style.height = '30px';
+            tr.textContent = orderList[index][key] + " ";
+            if (key === "name") {
+                tr.addEventListener("click", function aclick() {
+                    let url = new URL('http://45.67.59.109:2001/order');
+                    url.searchParams.set("id", orderList[index].id);
+                    xhr.open('GET', url);
+                    xhr.timeout = 10000;
+                    xhr.send();
+                    xhr.onload = function() {
+                        let answer = JSON.parse(xhr.response);
+                        console.log(answer);
+                        let showinfo = document.getElementById("temp");
+                        let tempcontainer = document.getElementById('orderContainer');
+                        showinfo.innerText = "Название: " + orderList[index].name + "\n" +
+                        "Описание: " + orderList[index].description + "\n" +
+                        "Стоимость: " + orderList[index].amount + " " + orderList[index].currency + "\n" +
+                        "manufacturer: " + orderList[index].manufacturer + "\n";
+                        tempcontainer.style.display = 'none';
+                        showinfo.style.display = 'block';
+                        let buttonback = document.createElement('button');
+                        buttonback.textContent = "Назад";
+                        buttonback.addEventListener("click", function buttonClick() {
+                            tempcontainer.style.display = 'block';
+                            showinfo.style.display = 'none';
+                            buttonback.removeEventListener("click", buttonbackClick);
+                        });
+                        showinfo.append(buttonback);
+                    };
+                });
+            }
+            td.append(tr);
+        }
+        table.append(td);
     }
 }
 
@@ -67,16 +95,24 @@ function countObj(obj) {
     return length;
 }
 
-let orderList = [
-    {name:"Kitkat", description:"Chocolate", cost:0, currency:"RU", size:0, weight:0, manufacturers_firm:"Firm 1", dateOfManufacture:"10.10.2020"}, 
-    {name:"Twix", description:"Chocolate", cost:0, currency:"RU", size:0, weight:0, manufacturers_firm:"Firm 2", dateOfManufacture:"07.10.1999"},
-    {name:"Mars", description:"Chocolate", cost:0, currency:"RU", size:0, weight:0, manufacturers_firm:"Firm 1", dateOfManufacture:"31.12.2019"}
-];
+let orderList = [];
 
-let container = document.getElementById('orderContainer');
-let table = document.createElement('table');
-BuildTable(table);
-container.append(table);
-BuildGetTable(table);
-container.append(table);
-let lengthCountObj = countObj(orderList[0]);
+let xhr = new XMLHttpRequest();
+let url = new URL('http://45.67.59.109:2001/orders');
+xhr.open('GET', url);
+xhr.timeout = 10000; // в миллисекундах (10 сек)
+xhr.send();
+xhr.onload = () => {
+    if (xhr.status != 200) {
+        alert('Ошибка ${xhr.status}: ${xhr.statusText}');
+    } else {
+        orderList = JSON.parse(xhr.response);
+        let container = document.getElementById('orderContainer');
+        let table = document.createElement('table');
+        BuildTable(table);
+        container.append(table);
+        BuildGetTable(table);
+        container.append(table);
+        let lengthCountObj = countObj(orderList[0]);
+    }
+  };

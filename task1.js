@@ -6,6 +6,7 @@ function City(nameCity, foundationDate, population, countryOfLocation) {
     foundationDate: foundationDate,
     population: population,
     countryOfLocation: countryOfLocation,
+    
     showFullInformation() {
         return 'Город ' + this.nameCity 
               + ' был основан в ' + this.foundationDate 
@@ -125,28 +126,16 @@ obj.method1().method2().method3();
 
 alert("Задание №4");
 let cites = [firstCity, secondCity, thirdCity, fourthCity];
-alert('До сортировки:')
-for (let i = 0; i < cites.length; i++)
+alert('До сортировки:');
+for (let i = 0; i < cites.length; i++) {
   alert(cites[i].nameCity);
+};
 sortByPopulation(cites);
-alert('После сортировки:')
-for (let i = 0; i < cites.length; i++)
+alert('После сортировки:');
+for (let i = 0; i < cites.length; i++) {
   alert(cites[i].nameCity);
+};
 
 alert("Задание №5");
 let array = [45, 78, 10, 3];
-array.sort(my);//.transformation();
-
-// alert(firstCity.nameCity);
-// alert(secondCity.nameCity);
-
-// alert("Задание №1");
-// let input = prompt("Введите строку:", "");
-
-// let capitalise = (str) => {
-//   let temp = str.charAt(0).toUpperCase() + str.slice(1);
-//     return temp;
-// }
-
-// let output = capitalise(input);
-// console.log(output);
+array.sort(my);

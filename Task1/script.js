@@ -3,15 +3,15 @@
 function BuildTable(table) {
     table.innerHTML = "";
     for (let index = 0; index < orderList.length; index++) {
-    let td = document.createElement('td');
-    for (let key in orderList[index]) {
-        let tr = document.createElement('tr');
-        tr.id = key;
-        tr.style.height = '30px';
-        tr.textContent = orderList[index][key] + " ";
-        td.append(tr);
-    }
-    table.append(td);
+        let td = document.createElement('td');
+        for (let key in orderList[index]) {
+            let tr = document.createElement('tr');
+            tr.id = key;
+            tr.style.height = '30px';
+            tr.textContent = orderList[index][key] + " ";
+            td.append(tr);
+        }
+        table.append(td);
     }
 }
 
@@ -40,7 +40,7 @@ function BuildGetTable(table) {
         let inputs = td.getElementsByTagName('input');
         let data = {};
 
-        for(let index = 0; index < inputs.length; index++) {
+        for (let index = 0; index < inputs.length; index++) {
             if (inputs[index].value === "") {
                 data[inputs[index].id] = "-";
             }
@@ -64,6 +64,7 @@ function countObj(obj) {
     for (var key in obj) {
         length++;
     }
+    
     return length;
 }
 

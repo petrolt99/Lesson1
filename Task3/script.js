@@ -87,7 +87,7 @@ function BuildGetTable(table) {
         let inputs = td.getElementsByTagName('input');
         let data = {};
 
-        for(let index = 0; index < inputs.length; index++) {
+        for (let index = 0; index < inputs.length; index++) {
             if (inputs[index].value === "") {
                 data[inputs[index].id] = "-";
             }
@@ -111,6 +111,7 @@ function countObj(obj) {
     for (var key in obj) {
         length++;
     }
+    
     return length;
 }
 

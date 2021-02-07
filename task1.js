@@ -6,13 +6,10 @@ function City(nameCity, foundationDate, population, countryOfLocation) {
     foundationDate: foundationDate,
     population: population,
     countryOfLocation: countryOfLocation,
-    
+
     showFullInformation() {
-        return 'Город ' + this.nameCity 
-              + ' был основан в ' + this.foundationDate 
-              + ' и расположен в стране ' + this.countryOfLocation 
-              + ', численность населения города составляет ' + this.population 
-              + ' человек.'; 
+        return `Город ${this.nameCity} был основан в ${this.foundationDate}` +  
+        ` и расположен в стране ${this.countryOfLocation}, численность населения города составляет ${this.population} человек`;
     }
   };
 }
@@ -138,4 +135,12 @@ for (let i = 0; i < cites.length; i++) {
 
 alert("Задание №5");
 let array = [45, 78, 10, 3];
-array.sort(my);
+array.sort(my).map(item => {
+         let temp = item.toString();
+         let sum = 0;
+         for (let key in temp) {
+             sum += Number(temp[key]);
+         }
+
+         return sum;
+     });

@@ -41,8 +41,9 @@ function showInfo(object) {
     + "Дата изготовления " + dateOfManufacture + "\n");
 
     function validate() {
-      if (typeof(object.cost) !== "number" || object.cost < 0)
+      if (typeof(object.cost) !== "number" || object.cost < 0) {
         throw "Стоимость не является числом или отрицательна!";
+      }
       for (let key in object) {
         if (!object[key]) {
           throw "Встречено пустое поле!";

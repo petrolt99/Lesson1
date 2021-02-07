@@ -3,23 +3,23 @@
 function BuildTable(table) {
     table.innerHTML = "";
     for (let index = 0; index < orderList.length; index++) {
-    let td = document.createElement('td');
-    td.id = index + 1;
-    td.addEventListener("click", e => {
-        console.warn("Идентификатор столбца на который нажали: " + td.id);
-        e.stopPropagation();
-    });
-    for (let key in orderList[index]) {
-        let tr = document.createElement('tr');
-        tr.addEventListener("click", () => {
-            alert("Начинаем всплытие!");
+        let td = document.createElement('td');
+        td.id = index + 1;
+        td.addEventListener("click", e => {
+            console.warn("Идентификатор столбца на который нажали: " + td.id);
+            e.stopPropagation();
         });
-        tr.id = key;
-        tr.style.height = '30px';
-        tr.textContent = orderList[index][key] + " ";
-        td.append(tr);
-    }
-    table.append(td);
+        for (let key in orderList[index]) {
+            let tr = document.createElement('tr');
+            tr.addEventListener("click", () => {
+                alert("Начинаем всплытие!");
+            });
+            tr.id = key;
+            tr.style.height = '30px';
+            tr.textContent = orderList[index][key] + " ";
+            td.append(tr);
+        }
+        table.append(td);
     }
 }
 

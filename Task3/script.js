@@ -3,36 +3,36 @@
 function BuildTable(table) {
     table.innerHTML = "";
     for (let index = 0; index < orderList.length; index++) {
-    let td = document.createElement('td');
-    for (let key in orderList[index]) {
-        let tr = document.createElement('tr');
-        tr.style.height = '30px';
-        if (key === "name") {
-            tr.id = key;
-            let a = document.createElement('a');
-            a.innerText = orderList[index][key];
-            a.addEventListener("click", function aclick() {
-                let showinfo = document.getElementById("temp");
-                showinfo.innerText = "Название: " + orderList[index].name + "\n" +
-                "Описание: " + orderList[index].description + "\n" +
-                "Стоимость: " + orderList[index].cost + " " + orderList[index].currency + "\n" +
-                "Размер: " + orderList[index].size + "\n" +
-                "Вес: " + orderList[index].weight + "\n" +
-                "Фирма производитель: " + orderList[index].manufacturers_firm + "\n" +
-                "Дата производства: " + orderList[index].dateOfManufacture + "\n";
-            });
-            a.style.textDecoration = 'none';
-            a.style.color = "black";
-            tr.append(a);
-            td.append(tr);
-          }
-        else {
-            tr.id = key;
-            tr.textContent = orderList[index][key] + " ";
-            td.append(tr);
+        let td = document.createElement('td');
+        for (let key in orderList[index]) {
+            let tr = document.createElement('tr');
+            tr.style.height = '30px';ы
+            if (key === "name") {
+                tr.id = key;
+                let a = document.createElement('a');
+                a.innerText = orderList[index][key];
+                a.addEventListener("click", function aclick() {
+                    let showinfo = document.getElementById("temp");
+                    showinfo.innerText = "Название: " + orderList[index].name + "\n" +
+                    "Описание: " + orderList[index].description + "\n" +
+                    "Стоимость: " + orderList[index].cost + " " + orderList[index].currency + "\n" +
+                    "Размер: " + orderList[index].size + "\n" +
+                    "Вес: " + orderList[index].weight + "\n" +
+                    "Фирма производитель: " + orderList[index].manufacturers_firm + "\n" +
+                    "Дата производства: " + orderList[index].dateOfManufacture + "\n";
+                });
+                a.style.textDecoration = 'none';
+                a.style.color = "black";
+                tr.append(a);
+                td.append(tr);
+            }
+            else {
+                tr.id = key;
+                tr.textContent = orderList[index][key] + " ";
+                td.append(tr);
+            }
         }
-    }
-    table.append(td);
+        table.append(td);
     }
 }
 

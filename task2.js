@@ -4,12 +4,7 @@ alert("Задание №2");
 let number1 = prompt("Введите число:", "");
 
 let isEven = (x) => {
-    if (x % 2 === 0) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return x % 2 === 0;
 }
 
 console.log(isEven(Number(number1)));

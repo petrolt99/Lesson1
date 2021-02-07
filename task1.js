@@ -5,7 +5,8 @@ let input = prompt("Введите строку:", "");
 
 let capitalise = (str) => {
   let temp = str.charAt(0).toUpperCase() + str.slice(1);
-    return temp;
+
+  return temp;
 }
 
 let output = capitalise(input);

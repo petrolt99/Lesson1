@@ -39,11 +39,13 @@ function BuildTable(table) {
                         buttonpay.addEventListener("click", function buttonpayClick() {
                             let xhr = new XMLHttpRequest();
                             let url = new URL('http://45.67.59.109:2001/order/pay');
-                            url.searchParams.set("id", orderList[index].id);
+                            //url.searchParams.set("id", orderList[index].id);
                             xhr.open('POST', url);
                             xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8');
                             xhr.timeout = 10000;
-                            xhr.send();
+                            xhr.send(JSON.stringify({
+                                id: orderList[index].id
+                            }));
                             xhr.onload = function() {
                                 if (xhr.status != 200) {
                                     alert(`Ошибка ${xhr.status}: ${xhr.statusText}`);

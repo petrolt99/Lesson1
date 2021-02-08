@@ -44,29 +44,29 @@ function GetWithParameters(index) {
                     //console.log(JSON.parse(xhr.response));;
                     //reject(xhr.response);
                     let answer = JSON.parse(xhr.response);
-                        console.log(answer);
-                        let showinfo = document.getElementById("temp");
-                        let tempcontainer = document.getElementById('orderContainer');
-                        showinfo.innerText = "Название: " + orderList[index].name + "\n" +
-                        "Описание: " + orderList[index].description + "\n" +
-                        "Стоимость: " + orderList[index].amount + " " + orderList[index].currency + "\n" +
-                        "Фирма: " + orderList[index].manufacturer + "\n";
-                        tempcontainer.style.display = 'none';
-                        showinfo.style.display = 'block';
-                        let buttonback = document.createElement('button');
-                        buttonback.textContent = "Назад";
-                        buttonback.addEventListener("click", function buttonbackClick() {
-                            tempcontainer.style.display = 'block';
-                            showinfo.style.display = 'none';
-                            buttonback.removeEventListener("click", buttonbackClick);
-                        });
-                        showinfo.append(buttonback);
-                        let buttonpay = document.createElement('button');
-                        buttonpay.textContent = "Купить";
-                        buttonpay.addEventListener("click", function buttonpayClick() {
-                            PostWithParameters(orderList[index].id);
-                        });
-                        showinfo.append(buttonpay);
+                    console.log(answer);
+                    let showinfo = document.getElementById("temp");
+                    let tempcontainer = document.getElementById('orderContainer');
+                    showinfo.innerText = "Название: " + orderList[index].name + "\n" +
+                    "Описание: " + orderList[index].description + "\n" +
+                    "Стоимость: " + orderList[index].amount + " " + orderList[index].currency + "\n" +
+                    "Фирма: " + orderList[index].manufacturer + "\n";
+                    tempcontainer.style.display = 'none';
+                    showinfo.style.display = 'block';
+                    let buttonback = document.createElement('button');
+                    buttonback.textContent = "Назад";
+                    buttonback.addEventListener("click", function buttonbackClick() {
+                        tempcontainer.style.display = 'block';
+                        showinfo.style.display = 'none';
+                        buttonback.removeEventListener("click", buttonbackClick);
+                    });
+                    showinfo.append(buttonback);
+                    let buttonpay = document.createElement('button');
+                    buttonpay.textContent = "Купить";
+                    buttonpay.addEventListener("click", function buttonpayClick() {
+                        PostWithParameters(orderList[index].id);
+                    });
+                    showinfo.append(buttonpay);
                 }
             };
         }, 1000);

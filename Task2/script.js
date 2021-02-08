@@ -28,7 +28,7 @@ function BuildTable(table) {
                         showinfo.style.display = 'block';
                         let buttonback = document.createElement('button');
                         buttonback.textContent = "Назад";
-                        buttonback.addEventListener("click", function buttonClick() {
+                        buttonback.addEventListener("click", function buttonbackClick() {
                             tempcontainer.style.display = 'block';
                             showinfo.style.display = 'none';
                             buttonback.removeEventListener("click", buttonbackClick);

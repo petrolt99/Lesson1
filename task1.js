@@ -58,7 +58,7 @@ function showAllCitiesInformation(one, two, three, four) {
 }
 
 function sortByPopulation(cites) {
-  for (let i = cites.length - 1; i >= 1; i--) {
+  for(let i = cites.length - 1; i >= 1; i--) {
     for (let j = 0; j < i; j++) {
       if (cites[j].population < cites[j+1].population) {
         let temp = cites[j];
@@ -138,6 +138,7 @@ let array = [45, 78, 10, 3];
 array.sort(my).map(item => {
          let temp = item.toString();
          let sum = 0;
+
          for (let key in temp) {
              sum += Number(temp[key]);
          }
